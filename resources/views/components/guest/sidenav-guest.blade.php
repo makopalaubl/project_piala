@@ -2,7 +2,7 @@
     class="navbar navbar-expand-lg blur border-radius-sm top-0 z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
     <div class="container-fluid px-1">
         <a class="navbar-brand font-weight-bolder ms-lg-0 " href="../pages/dashboard.html">
-            Corporate UI
+            MAKO PLANET
         </a>
         <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
             data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,7 +14,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navigation">
             <ul class="navbar-nav mx-auto ms-xl-auto">
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link d-flex align-items-center me-2 {{ is_current_route('sign-up') ? 'active' : '' }}"
                         href="{{ route('sign-up') }}">
                         <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
@@ -37,12 +37,12 @@
                         </svg>
                         Sign In
                     </a>
-                </li>
+                </li> --}}
             </ul>
             <ul class="navbar-nav d-lg-block d-none">
                 <li class="nav-item">
-                    <a href="https://www.creative-tim.com/product/corporate-ui-dashboard-laravel" target="_blank"
-                        class="btn btn-sm mb-0 bg-gradient-dark">Free download</a>
+                    <a href=""
+                        class="btn btn-sm mb-0 bg-gradient-dark">MAKOPALA UBL</a>
                 </li>
             </ul>
         </div>
