@@ -11,14 +11,18 @@ class Accomplishment extends Model
 
     protected $fillable = [
         'member_id',
-        'year',
-        'month',
-        'day',
+        'start_date',
+        'end_date',
+        'category',
         'event_name',
+        'type',
         'level',
-        'class',
         'organizer',
-        'athlete',
+        'barcode_trophy',
+        'street',
+        'province',
+        'zip_code',
+        'country',
         'rank',
         'awards',
         'condition',
@@ -27,6 +31,8 @@ class Accomplishment extends Model
 
     protected $casts = [
         'awards' => 'array',
+        'start_date' => 'date',
+        'end_date' => 'date',
     ];
 
     public function member()

@@ -69,6 +69,7 @@
 </head>
 
 <body class="">
+@stack('scripts')
 
     {{ $slot }}
     <!--   Core JS Files   -->

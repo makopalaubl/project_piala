@@ -18,6 +18,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     @if (config('app.is_demo'))
         <title itemprop="name">
            MAKOPLANET
@@ -168,6 +169,9 @@
             </div>
         </div>
     </div>
+
+    @stack('scripts')
+
     <!--   Core JS Files   -->
     <script src="../assets/js/core/popper.min.js"></script>
     <script src="../assets/js/core/bootstrap.min.js"></script>

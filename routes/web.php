@@ -92,6 +92,5 @@ Route::get('/laravel-examples/users-management', [UserController::class, 'index'
 
 
 
-Route::get('/accomplishment', [AccomplishmentController::class, 'index'])
-    ->name('accomplishment.index')
-    ->middleware('auth');
+Route::resource('/accomplishment', AccomplishmentController::class)->middleware('auth');
+

@@ -27,9 +27,10 @@
                                     </p>
                                 </div>
                                 <div class="col-6 text-end">
-                                    <a href="#" class="btn btn-dark btn-primary">
+                                    <button class="btn btn-dark btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#accomplishmentModal">
                                         <i class="fas fa-plus me-2"></i> Add Accomplishment
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -42,28 +43,28 @@
                                         <th class="text-uppercase font-weight-bold">Member</th>
                                         <th class="text-uppercase font-weight-bold">Event</th>
                                         <th class="text-uppercase font-weight-bold">Level</th>
-                                        <th class="text-uppercase font-weight-bold">Class</th>
+                                        <th class="text-uppercase font-weight-bold">Type</th>
                                         <th class="text-uppercase font-weight-bold">Organizer</th>
                                         <th class="text-uppercase font-weight-bold">Rank</th>
                                         <th class="text-uppercase font-weight-bold">Award</th>
-                                        <th class="text-uppercase font-weight-bold">Date</th>
+                                        <th class="text-uppercase font-weight-bold">Start Date</th>
+                                        <th class="text-uppercase font-weight-bold">End Date</th>
                                         <th class="text-uppercase font-weight-bold">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($accomplishments as $item)
+                                    @foreach ($accomplishments as $item)
                                         <tr>
                                             <td>{{ $item->id }}</td>
                                             <td>{{ $item->member->full_name ?? '-' }}</td>
                                             <td>{{ $item->event_name }}</td>
                                             <td>{{ $item->level }}</td>
-                                            <td>{{ $item->class }}</td>
+                                            <td>{{ $item->type }}</td>
                                             <td>{{ $item->organizer }}</td>
                                             <td>{{ $item->rank }}</td>
-                                            <td>
-                                                {{ $item->awards['type'] ?? '-' }}
-                                            </td>
-                                            <td>{{ $item->day }}/{{ $item->month }}/{{ $item->year }}</td>
+                                            <td>{{ $item->awards['type'] ?? '-' }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($item->start_date)->format('d M Y') }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($item->end_date)->format('d M Y') }}</td>
                                             <td>
                                                 <a href="#"><i class="fas fa-edit"></i></a>
                                                 <a href="#"><i class="fas fa-trash text-danger"></i></a>
@@ -74,10 +75,20 @@
                             </table>
                         </div>
                     </div>
-                    
+                    @include('pages.accomplishment.modal')
+
                 </div>
             </div>
         </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const canvas = document.getElementById('myChart');
+                if (canvas) {
+                    const ctx = canvas.getContext('2d');
+                    // lanjutkan pakai Chart.js atau gambar di canvas
+                }
+            });
+        </script>
 
         <x-app.footer />
     </main>

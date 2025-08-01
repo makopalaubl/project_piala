@@ -10,23 +10,21 @@ class MemberSeeder extends Seeder
     public function run(): void
     {
         Member::create([
-            'full_name'     => 'Rizky Fadilah',
-            'member_number' => 'MKP001',
-            'initial_name'  => 'RF',
-            'group_name'    => 'Alpha',
+            'full_name'     => 'Tama Putra',
+            'member_number' => 'MBR001',
+            'initial_name'  => 'TP',
+            'group_name'    => 'Tim A',
             'group_year'    => '2022',
             'building'      => 'Gedung A',
-            'street'        => 'Jl. Merdeka No.10',
-            'village'       => 'Cibeunying',
-            'district'      => 'Bandung Wetan',
+            'street'        => 'Jl. Merdeka No.1',
+            'village'       => 'Desa Damai',
+            'district'      => 'Kec. Sejahtera',
             'city'          => 'Bandung',
             'province'      => 'Jawa Barat',
-            'postal_code'   => '40115',
+            'postal_code'   => '40123',
             'country'       => 'Indonesia',
-            'division'      => 'Pendakian',
-            'img_profile'   => json_encode([
-                'profile1.jpg', 'profile2.jpg'
-            ]),
+            'division'      => 'Atletik',
+            'img_profile'   => json_encode(['url' => 'profile/mbr001.jpg']),
         ]);
     }
 }

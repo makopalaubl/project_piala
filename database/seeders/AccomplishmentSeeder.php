@@ -10,25 +10,26 @@ class AccomplishmentSeeder extends Seeder
 {
     public function run(): void
     {
-        $member = Member::first(); // Ambil satu member untuk relasi
+        $member = Member::first(); // ambil satu member dulu
 
         Accomplishment::create([
-            'member_id'    => $member->id,
-            'year'         => 2024,
-            'month'        => 'Mei',
-            'day'          => 12,
-            'event_name'   => 'Lomba Lari Gunung Nasional',
-            'level'        => 'Nasional',
-            'class'        => 'Putra Umum',
-            'organizer'    => 'KONI Indonesia',
-            'athlete'      => 'Rizky Fadilah',
-            'rank'         => 'Juara 1',
-            'awards'       => json_encode([
-                'type' => 'Medal',
-                'id'   => 'MED123456'
-            ]),
-            'condition'    => 'Sehat',
-            'notes'        => 'Performa sangat baik di cuaca ekstrem.',
+            'member_id'     => $member->id,
+            'start_date'     => '2024-01-15',
+            'end_date'      => '2024-01-17',
+            'category'      => 'Olahraga',
+            'event_name'    => 'Kejuaraan Nasional Atletik',
+            'type'          => 'Lomba',
+            'level'         => 'Nasional',
+            'organizer'     => 'Kemenpora RI',
+            'barcode_trophy'=> 'BC123456789',
+            'street'        => 'Jl. Sudirman',
+            'province'      => 'DKI Jakarta',
+            'zip_code'      => '10210',
+            'country'       => 'Indonesia',
+            'rank'          => '1',
+            'awards'        => json_encode(['type' => 'Medal', 'id' => 'MD123']),
+            'condition'     => 'Sehat',
+            'notes'         => 'Lomba berjalan lancar dan meraih emas.',
         ]);
     }
 }
