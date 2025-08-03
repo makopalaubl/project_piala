@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\LettersController;
+use App\Http\Controllers\MembersController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
@@ -7,6 +9,8 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
+
+use App\Http\Controllers\BphController;
 use App\Http\Controllers\AccomplishmentController;
 
 /*
@@ -91,6 +95,18 @@ Route::get('/laravel-examples/users-management', [UserController::class, 'index'
 
 
 
+Route::resource('/bph', BphController::class)->middleware('auth');
+Route::resource('/letters', LettersController::class)->middleware('auth');
+Route::resource('/members', MembersController::class)->middleware('auth');
 
+// Inventory
 Route::resource('/accomplishment', AccomplishmentController::class)->middleware('auth');
+Route::resource('/doc-print', AccomplishmentController::class)->middleware('auth');
+Route::resource('/doc-storage', AccomplishmentController::class)->middleware('auth');
+
+// Logistic
+Route::resource('/gears-mountaineering', AccomplishmentController::class)->middleware('auth');
+Route::resource('/gears-rafting', AccomplishmentController::class)->middleware('auth');
+Route::resource('/gears-rockclimbing', AccomplishmentController::class)->middleware('auth');
+Route::resource('/gears-caving', AccomplishmentController::class)->middleware('auth');
 
