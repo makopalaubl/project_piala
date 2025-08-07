@@ -66,8 +66,14 @@
                                             <td>{{ \Carbon\Carbon::parse($item->start_date)->format('d M Y') }}</td>
                                             <td>{{ \Carbon\Carbon::parse($item->end_date)->format('d M Y') }}</td>
                                             <td>
-                                                <a href="#"><i class="fas fa-edit"></i></a>
-                                                <a href="#"><i class="fas fa-trash text-danger"></i></a>
+                                                <a href="javascript:void(0)" class="text-info me-2 btn-edit"
+                                                    data-id="{{ $item->id }}">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <a href="javascript:void(0)" class="text-danger btn-delete"
+                                                    data-id="{{ $item->id }}">
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
                                             </td>
                                         </tr>
                                     @endforeach

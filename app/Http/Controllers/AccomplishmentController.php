@@ -17,7 +17,13 @@ class AccomplishmentController extends Controller
 
         return view('pages.accomplishment', compact('accomplishments', 'members'));
     }
-    
+
+    public function show($id)
+    {
+        $accomplishment = Accomplishment::with('member')->findOrFail($id);
+        return response()->json($accomplishment);
+    }
+
     // Tampilkan form tambah prestasi
     public function create()
     {
@@ -28,9 +34,9 @@ class AccomplishmentController extends Controller
     // Simpan data baru
     public function store(AccomplishmentRequest $request)
     {
-        
+
         Accomplishment::create($request->validated());
-        return redirect()->route('accomplishment.index')->with('success', 'Accomplishment added successfully.');
+        return response()->json(['success' => true]);
     }
 
     // Tampilkan form edit
@@ -45,8 +51,11 @@ class AccomplishmentController extends Controller
     public function update(AccomplishmentRequest $request, $id)
     {
         $accomplishment = Accomplishment::findOrFail($id);
-        $accomplishment->update($request->validated());
-        return redirect()->route('accomplishment.index')->with('success', 'Accomplishment updated successfully.');
+        $validated['awards'] = $request->input('awards'); // pastikan array awards ikut masuk
+
+        $accomplishment->update($validated);
+
+        return response()->json(['success' => true]);
     }
 
     // Hapus prestasi
@@ -55,6 +64,6 @@ class AccomplishmentController extends Controller
         $accomplishment = Accomplishment::findOrFail($id);
         $accomplishment->delete();
 
-        return redirect()->route('accomplishment.index')->with('success', 'Accomplishment deleted.');
+        return response()->json(['success' => true]);
     }
 }
