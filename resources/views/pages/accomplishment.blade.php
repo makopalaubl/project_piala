@@ -66,9 +66,30 @@
                                             <td>{{ \Carbon\Carbon::parse($item->start_date)->format('d M Y') }}</td>
                                             <td>{{ \Carbon\Carbon::parse($item->end_date)->format('d M Y') }}</td>
                                             <td>
-                                                <a href="#"><i class="fas fa-edit"></i></a>
+                                                <a href="#" class="edit-btn" data-id="{{ $item->id }}"
+                                                    data-member_id="{{ $item->member_id }}"
+                                                    data-category="{{ $item->category }}"
+                                                    data-event_name="{{ $item->event_name }}"
+                                                    data-level="{{ $item->level }}" data-type="{{ $item->type }}"
+                                                    data-organizer="{{ $item->organizer }}"
+                                                    data-rank="{{ $item->rank }}"
+                                                    data-award_type="{{ $item->awards['type'] ?? '' }}"
+                                                    data-start_date="{{ $item->start_date }}"
+                                                    data-end_date="{{ $item->end_date }}"
+                                                    data-barcode_trophy="{{ $item->barcode_trophy }}"
+                                                    data-street="{{ $item->street }}"
+                                                    data-province="{{ $item->province }}"
+                                                    data-zip_code="{{ $item->zip_code }}"
+                                                    data-country="{{ $item->country }}"
+                                                    data-condition="{{ $item->condition }}"
+                                                    data-notes="{{ $item->notes }}" data-bs-toggle="modal"
+                                                    data-bs-target="#accomplishmentModal">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+
                                                 <a href="#"><i class="fas fa-trash text-danger"></i></a>
                                             </td>
+
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -81,14 +102,33 @@
             </div>
         </div>
         <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const canvas = document.getElementById('myChart');
-                if (canvas) {
-                    const ctx = canvas.getContext('2d');
-                    // lanjutkan pakai Chart.js atau gambar di canvas
-                }
+            document.querySelectorAll('.edit-btn').forEach(function(button) {
+                button.addEventListener('click', function() {
+                    const form = document.getElementById('accomplishmentForm');
+                    form.action = '/accomplishment/' + this.dataset.id; // edit ke /accomplishment/{id}
+
+                    // Gunakan PUT untuk update
+                    const methodInput = document.createElement('input');
+                    methodInput.setAttribute('type', 'hidden');
+                    methodInput.setAttribute('name', '_method');
+                    methodInput.setAttribute('value', 'PUT');
+                    form.appendChild(methodInput);
+
+                    // Isi field form
+                    document.getElementById('accomplishment_id').value = this.dataset.id;
+                    document.getElementById('member_id').value = this.dataset.member_id;
+                    document.getElementById('event_name').value = this.dataset.event_name;
+                    document.getElementById('level').value = this.dataset.level;
+                    document.getElementById('type').value = this.dataset.type;
+                    document.getElementById('organizer').value = this.dataset.organizer;
+                    document.getElementById('rank').value = this.dataset.rank;
+                    document.getElementById('award_type').value = this.dataset.award_type;
+                    document.getElementById('start_date').value = this.dataset.start_date;
+                    document.getElementById('end_date').value = this.dataset.end_date;
+                });
             });
         </script>
+
 
         <x-app.footer />
     </main>

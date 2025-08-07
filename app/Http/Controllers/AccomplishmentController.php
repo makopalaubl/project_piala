@@ -44,6 +44,7 @@ class AccomplishmentController extends Controller
     // Simpan perubahan
     public function update(AccomplishmentRequest $request, $id)
     {
+        dd("kobra");
         $accomplishment = Accomplishment::findOrFail($id);
         $accomplishment->update($request->validated());
         return redirect()->route('accomplishment.index')->with('success', 'Accomplishment updated successfully.');
