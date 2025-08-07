@@ -38,7 +38,7 @@
             </li>
             
             <li class="nav-item">
-                <a class="nav-link  {{ is_current_route('tables') ? 'active' : '' }}" href="{{ route('tables') }}">
+                <a class="nav-link  {{ is_current_route('bph.index') ? 'active' : '' }}" href="{{ route('bph.index') }}">
                     <div
                         class="icon icon-shape icon-sm px-0 text-center d-flex align-items-center justify-content-center">
                         <svg width="30px" height="30px" viewBox="0 0 48 48" version="1.1"
@@ -68,7 +68,7 @@
             </li>
 
              <li class="nav-item">
-                <a class="nav-link  {{ is_current_route('tables') ? 'active' : '' }}" href="{{ route('tables') }}">
+                <a class="nav-link  {{ is_current_route('letters.index') ? 'active' : '' }}" href="{{ route('letters.index') }}">
                     <div
                         class="icon icon-shape icon-sm px-0 text-center d-flex align-items-center justify-content-center">
                         <svg width="30px" height="30px" viewBox="0 0 48 48" version="1.1"
@@ -98,7 +98,7 @@
             </li>
 
              <li class="nav-item">
-                <a class="nav-link  {{ is_current_route('tables') ? 'active' : '' }}" href="{{ route('tables') }}">
+                <a class="nav-link  {{ is_current_route('members.index') ? 'active' : '' }}" href="{{ route('members.index') }}">
                     <div
                         class="icon icon-shape icon-sm px-0 text-center d-flex align-items-center justify-content-center">
                         <svg width="30px" height="30px" viewBox="0 0 48 48" version="1.1"
@@ -181,7 +181,7 @@
             </li> --}}
 
 
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link  {{ is_current_route('RTL') ? 'active' : '' }}" href="{{ route('RTL') }}">
                     <div
                         class="icon icon-shape icon-sm px-0 text-center d-flex align-items-center justify-content-center">
@@ -205,7 +205,8 @@
                     </div>
                     <span class="nav-link-text ms-1">RTL</span>
                 </a>
-            </li>
+            </li> --}}
+
             {{-- <li class="nav-item mt-2">
                 <div class="d-flex align-items-center nav-link">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="ms-2"
@@ -238,7 +239,7 @@
                             d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
                             clip-rule="evenodd" />
                     </svg>
-                    <span class="font-weight-normal text-md ms-2">Inventaris, Berkas & Arsip</span>
+                    <span class="font-weight-normal text-md ms-2">Inv, Berkas & Arsip</span>
                 </div>
             </li>
             <li class="nav-item border-start my-0 pt-2">
@@ -340,10 +341,10 @@
         </ul>
     </div>
     <div class="sidenav-footer mx-4 ">
-        <a class="btn bg-gradient-primary inline-block px-5 py-3 mx-auto text-xs align-middle transition-all ease-in border-0 rounded-lg select-none"
+        {{-- <a class="btn bg-gradient-primary inline-block px-5 py-3 mx-auto text-xs align-middle transition-all ease-in border-0 rounded-lg select-none"
             href="https://www.creative-tim.com/product/corporate-ui-dashboard-pro-laravel" target="_blank">
             UPGRADE TO PRO
-        </a>
+        </a> --}}
         <div class="card border-radius-md" id="sidenavCard">
             <div class="card-body  text-start  p-3 w-100">
                 <div class="mb-3">
@@ -358,9 +359,9 @@
                 <div class="docs-info">
                     <h6 class="font-weight-bold up mb-2">Need help?</h6>
                     <p class="text-sm font-weight-normal">Please check our docs.</p>
-                    <a href="https://www.creative-tim.com/learning-lab/bootstrap/installation-guide/corporate-ui-dashboard"
+                    <a href=""
                         target="_blank" class="font-weight-bold text-sm mb-0 icon-move-right mt-auto w-100 mb-0">
-                        Documentation
+                        Contact
                         <i class="fas fa-arrow-right-long text-sm ms-1" aria-hidden="true"></i>
                     </a>
                 </div>
