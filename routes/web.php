@@ -9,6 +9,8 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
+
 
 use App\Http\Controllers\BphController;
 use App\Http\Controllers\AccomplishmentController;
@@ -101,6 +103,13 @@ Route::resource('/members', MembersController::class)->middleware('auth');
 
 // Inventory
 Route::resource('/accomplishment', AccomplishmentController::class)->middleware('auth');
+// routes/web.php
+Route::get('/accomplishment/public/{id}', [AccomplishmentController::class, 'publicView'])->name('accomplishment.public');
+Route::get('/accomplishment/{id}/qr', function ($id) {
+    $url = route('accomplishment.public', ['id' => $id]);
+    return QrCode::size(300)->generate($url);
+})->name('accomplishment.generateQr');
+
 Route::resource('/doc-print', AccomplishmentController::class)->middleware('auth');
 Route::resource('/doc-storage', AccomplishmentController::class)->middleware('auth');
 
