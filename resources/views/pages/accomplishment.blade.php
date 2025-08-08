@@ -70,6 +70,21 @@
                                                     data-id="{{ $item->id }}">
                                                     <i class="fas fa-edit"></i>
                                                 </a>
+
+                                                {{-- <a href="{{ route('accomplishment.generateQr', $item->id) }}" class="text-primary me-2" target="_blank" title="QR Code">
+                                                    <i class="fas fa-qrcode"></i>
+                                                </a> --}}
+
+                                                <a href="{{ route('accomplishment.public', $item->id) }}"
+                                                    target="_blank" title="Open Public Page">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+
+                                                <a href="{{ route('accomplishment.generateQr', $item->id) }}"
+                                                    target="_blank" title="QR Code">
+                                                    <i class="fas fa-qrcode"></i>
+                                                </a>
+
                                                 <a href="javascript:void(0)" class="text-danger btn-delete"
                                                     data-id="{{ $item->id }}">
                                                     <i class="fas fa-trash"></i>

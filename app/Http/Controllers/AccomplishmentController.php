@@ -66,4 +66,11 @@ class AccomplishmentController extends Controller
 
         return response()->json(['success' => true]);
     }
+
+    public function publicView($id)
+{
+    $item = Accomplishment::with('member')->findOrFail($id);
+
+    return view('pages.accomplishment.public', compact('item'));
+}
 }
